@@ -1,0 +1,70 @@
+<html>
+        <head>
+        <link rel="stylesheet" href="bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <title>EyeWitness Report</title>
+        <script src="jquery-3.7.1.min.js"></script>
+        <script type="text/javascript">
+        function toggleUA(id, url){
+        idi = "." + id;
+        $(idi).toggle();
+        change = document.getElementById(id);
+        if (change.innerHTML.indexOf("expand") > -1){
+            change.innerHTML = "Click to collapse User Agents for " + url;
+        }else{
+            change.innerHTML = "Click to expand User Agents for " + url;
+        }
+        }
+
+        document.onkeydown = function(event){
+            event = event || window.event;
+            switch (event.keyCode){
+                case 37:
+                    leftArrow();
+                    break;
+                case 39:
+                    rightArrow();
+                    break;
+            }
+        };
+                
+        function leftArrow(){
+            $('#previous')[0].click();
+        };
+
+        function rightArrow(){
+            $('#next')[0].click();
+        };
+
+        </script>
+        </head>
+        <body>
+        <center>
+        <center>Report Generated on 2026/01/07 at 19:55:12</center><h3>Page 4</h3><center><a href="report_page3.html" id="previous"> Previous Page </a></center>
+<center><br><a href="report.html"> Page 1</a><a href="report_page2.html"> Page 2</a><a href="report_page3.html"> Page 3</a><a href="report_page4.html"> Page 4</a></center>
+<table border="1">
+        <tr>
+        <th>Web Request Info</th>
+        <th>Web Screenshot</th>
+        </tr><tr>
+            <td><div style="display: inline-block; width: 300px; word-wrap: break-word">
+            <a href="https://desarrolloyempleo.cba.gov.ar/.htaccess" target="_blank">https://desarrolloyempleo.cba.gov.ar/.htaccess</a><br>
+            <b>Resolved to:</b> 3.174.59.48<br>
+<br><b> Page Title: </b>403 Forbidden
+<br><b> Server:</b> CloudFront
+<br><b> Date:</b> Wed, 07 Jan 2026 22:56:30 GMT
+<br><b> Content-Type:</b> text/html
+<br><b> Content-Length:</b> 919
+<br><b> Connection:</b> close
+<br><b> X-Cache:</b> Error from cloudfront
+<br><b> Via:</b> 1.1 93f6839aa8ea1d94313bec30964a87b8.cloudfront.net (CloudFront)
+<br><b> X-Amz-Cf-Pop:</b> GIG52-P2
+<br><b> X-Amz-Cf-Id:</b> _F7P--EcA1yYoCnHIM4fU_C641Yk1aQjVitnsEkviVjKCQuIsZpNCQ==
+<br><br><a href="source\https.desarrolloyempleo.cba.gov.ar..htaccess.txt"
+                target="_blank">Source Code</a></div></td>
+                <td><div id="screenshot"><a href="screens\desarrolloyempleo.cba.gov.ar_.htaccess.png"
+                target="_blank"><img style="max-height:400px;height: expression(this.height > 400 ? 400: true);"
+                src="screens\desarrolloyempleo.cba.gov.ar_.htaccess.png"></a></div></td></tr></div>
+        </div></table><br></table><br>
+<center><br><a href="report.html"> Page 1</a><a href="report_page2.html"> Page 2</a><a href="report_page3.html"> Page 3</a><a href="report_page4.html"> Page 4</a></center>
+<br><h3>Page 4</h3><center><a href="report_page3.html" id="previous"> Previous Page </a></center></body></html>

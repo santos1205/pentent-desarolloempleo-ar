@@ -165,15 +165,25 @@ This phase involves direct interaction with the targets you discovered to map th
 
 *   **Technique Type:** Active Reconnaissance
 *   **Description:** It's impossible to manually browse hundreds of websites. These tools take screenshots, allowing you to visually identify interesting pages.
-*   **Tools:** EyeWitness, aquatone
+*   **Tools:** EyeWitness, gowitness, aquatone
 *   **The Commands:**
     ```bash
-    # For a detailed report with default credential checking
-    eyewitness -f live_hosts.txt --web -d eyewitness_report/
+    # EyeWitness (Windows/Linux) - Detailed report with default credential checking
+    python Python/EyeWitness.py -f live_hosts.txt --web -d eyewitness_report/ --no-prompt
 
-    # For a quick overview report
+    # gowitness (Windows/Linux) - Fast Go-based screenshot tool
+    gowitness file -f live_hosts.txt -P gowitness_report/
+    
+    # gowitness single URL
+    gowitness single https://target.com -P gowitness_report/
+
+    # aquatone (Linux/WSL) - Quick overview report
     cat live_hosts.txt | aquatone -out aquatone_report/
     ```
+*   **Platform Notes:**
+    *   **EyeWitness:** Works on Windows (requires Chrome/Firefox and Selenium setup), Linux
+    *   **gowitness:** Cross-platform (Windows/Linux/Mac), single binary, no dependencies
+    *   **aquatone:** Primarily Linux/WSL, requires Go runtime
 *   **Why It's Useful:** This saves a huge amount of time. By scrolling through screenshots, you can instantly identify login portals, old/forgotten applications, default installation pages, and error messages that leak information.
 
 #### 8. CRAWLING FOR ENDPOINTS
