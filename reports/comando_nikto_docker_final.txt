@@ -1,0 +1,20 @@
+# ============================================
+# COMANDO NIKTO VIA DOCKER (SOLUÇÃO RECOMENDADA)
+# ============================================
+# O nikto.pl local está com problemas de permissão/caminho no Windows
+# Docker é mais confiável e funciona perfeitamente
+
+# Comando principal (salva no diretório atual):
+docker run --rm -v "$(pwd):/tmp" sullo/nikto -h https://desarrolloyempleo.cba.gov.ar -o /tmp/etapa16_nikto.txt -Format txt
+
+# OU versão simplificada (output no container, copie depois):
+docker run --rm sullo/nikto -h https://desarrolloyempleo.cba.gov.ar -o etapa16_nikto.txt -Format txt
+
+# Com output em HTML:
+docker run --rm -v "$(pwd):/tmp" sullo/nikto -h https://desarrolloyempleo.cba.gov.ar -o /tmp/etapa16_nikto.html -Format htm
+
+# ============================================
+# EXECUTE ESTE COMANDO:
+# ============================================
+docker run --rm -v "$(pwd):/tmp" sullo/nikto -h https://desarrolloyempleo.cba.gov.ar -o /tmp/etapa16_nikto.txt -Format txt
+

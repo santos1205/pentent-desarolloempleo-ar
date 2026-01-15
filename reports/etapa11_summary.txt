@@ -1,0 +1,7 @@
+=== RESUMO ETAPA 11 ===
+
+PARAMSPIDER - URLs com Parâmetros Descobertos:
+9 paramspider_urls_with_params.txt
+
+ARJUN - Parâmetros Ocultos Descobertos:
+https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?_wpnonce=0700&_method=0772&password=5913&id=3858&context=7507

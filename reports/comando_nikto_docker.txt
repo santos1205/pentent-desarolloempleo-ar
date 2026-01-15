@@ -1,0 +1,24 @@
+# ============================================
+# COMANDO NIKTO VIA DOCKER (RECOMENDADO)
+# ============================================
+# O nikto.pl não está disponível localmente
+# Use Docker que é mais confiável:
+
+# Comando principal (TXT):
+docker run --rm sullo/nikto -h https://desarrolloyempleo.cba.gov.ar -o etapa16_nikto.txt -Format txt
+
+# OU com volume para salvar o arquivo:
+docker run --rm -v "$(pwd):/tmp" sullo/nikto -h https://desarrolloyempleo.cba.gov.ar -o /tmp/etapa16_nikto.txt -Format txt
+
+# Com output em HTML:
+docker run --rm -v "$(pwd):/tmp" sullo/nikto -h https://desarrolloyempleo.cba.gov.ar -o /tmp/etapa16_nikto.html -Format htm
+
+# ============================================
+# ALTERNATIVA: BAIXAR NIKTO COMPLETO
+# ============================================
+# Se preferir instalar localmente:
+# cd /c/Sec/Tools/nikto
+# git pull origin master
+# OU
+# git clone https://github.com/sullo/nikto.git /c/Sec/Tools/nikto_new
+

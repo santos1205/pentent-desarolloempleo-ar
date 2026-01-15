@@ -1,0 +1,48 @@
+# ============================================
+# COMANDOS NIKTO - EXECUÇÃO MANUAL
+# Etapa 16: Automated Vulnerability Scanning
+# ============================================
+
+# Comando 1: Scan básico (TXT)
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -o etapa16_nikto.txt -Format txt
+
+# Comando 2: Scan com output em HTML
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -o etapa16_nikto.html -Format htm
+
+# Comando 3: Scan com SSL explícito
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -ssl -o etapa16_nikto_ssl.txt -Format txt
+
+# Comando 4: Scan com timeout aumentado (útil se o site for lento)
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -timeout 10 -o etapa16_nikto.txt -Format txt
+
+# Comando 5: Scan com user agent customizado (evasão de WAF)
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -o etapa16_nikto.txt -Format txt
+
+# Comando 6: Scan com cookies (se necessário para autenticação)
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -C all -o etapa16_nikto.txt -Format txt
+
+# Comando 7: Scan focado em vulnerabilidades específicas
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -Plugins "apache_expect_xss,put_del_test" -o etapa16_nikto_plugins.txt -Format txt
+
+# Comando 8: Scan com proxy (se necessário)
+# perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -useproxy http://proxy:port -o etapa16_nikto.txt -Format txt
+
+# Comando 9: Scan com mutação de encoding (evasão)
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -mutate 1 -o etapa16_nikto_mutate.txt -Format txt
+
+# Comando 10: Scan completo com todas as opções recomendadas
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -ssl -timeout 10 -useragent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -o etapa16_nikto_completo.txt -Format txt
+
+# ============================================
+# COMANDO RECOMENDADO PARA INICIAR:
+# ============================================
+perl /c/Sec/Tools/nikto/program/nikto.pl -h https://desarrolloyempleo.cba.gov.ar -o etapa16_nikto.txt -Format txt
+
+# ============================================
+# NOTAS:
+# - O scan pode levar vários minutos (Nikto é "ruidosa")
+# - Alguns resultados podem ser falsos positivos
+# - Verifique o arquivo de output após a execução
+# - Se houver problemas, use Docker: docker run --rm sullo/nikto -h https://desarrolloyempleo.cba.gov.ar -o etapa16_nikto.txt -Format txt
+# ============================================
+

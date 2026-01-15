@@ -1,0 +1,56 @@
+=== ETAPA 14: BRUTE-FORCE & FUZZING DE VALORES DE PARÂMETROS ===
+
+Status: Testes executados com wordlists reduzidas
+
+Ferramenta Utilizada: ffuf v2.1.0
+Wordlists: Reduzidas para testes rápidos (10-20 valores)
+
+Parâmetros Testados:
+1. page_id - Enumeração de páginas (10 valores: 1, 10, 50, 100, 500, 1000, 5000, 9999, 10000)
+2. id (SQLi) - Teste de injeção SQL (20 payloads)
+3. context (XSS) - Teste de XSS (10 payloads)
+4. password - Teste de acesso a posts protegidos (4 valores: test, 123456, password, vazio)
+5. context=edit - Teste de vazamento de informações (edit, view, embed)
+
+DESCOBERTAS PRINCIPAIS:
+
+1. PARÂMETRO PASSWORD FUNCIONAL:
+   - Endpoint: /wp-json/wp/v2/posts/106992?password=FUZZ
+   - Status: 200 quando password vazio ou incorreto
+   - Resposta quando incorreto: {"code":"rest_post_incorrect_password","message":"Contraseña de entrada incorrecta.","data":{"status":403}}
+   - IMPLICAÇÃO: Permite brute-force de senhas de posts protegidos por senha
+
+2. PARÂMETRO CONTEXT=EDIT PROTEGIDO:
+   - Endpoint: /wp-json/wp/v2/posts/106992?context=edit
+   - Status: 401 (Unauthorized)
+   - Resposta: {"code":"rest_forbidden_context","message":"Lo siento, no tienes permisos para editar esta entrada.","data":{"status":401}}
+   - IMPLICAÇÃO: Protegido, mas mensagem de erro pode ser útil para identificar permissões
+
+3. PARÂMETRO CONTEXT=VIEW E EMBED:
+   - context=view: Retorna JSON completo (200, 13589 bytes)
+   - context=embed: Retorna versão reduzida (200, 2182 bytes)
+   - IMPLICAÇÃO: Funcionalidade normal do WordPress REST API
+
+4. WAF CLOUDFRONT ATIVO:
+   - Bloqueando requisições suspeitas (403)
+   - Especialmente para page_id com valores baixos (1, 10)
+   - IMPLICAÇÃO: WAF está funcionando e bloqueando tentativas de enumeração
+
+5. TESTES DE SQLI E XSS:
+   - Nenhum resultado positivo detectado
+   - Payloads filtrados ou não retornaram diferenças significativas
+   - IMPLICAÇÃO: Aplicação parece ter proteções básicas contra injeção
+
+VULNERABILIDADES IDENTIFICADAS:
+
+- DE-009 (POTENCIAL): Brute-Force de Senhas de Posts Protegidos
+  - O parâmetro password permite tentativas de brute-force
+  - Não há rate limiting aparente no endpoint wp-json
+  - Pode ser usado para descobrir senhas de posts privados
+
+PRÓXIMOS PASSOS:
+- Testar brute-force de senhas em posts protegidos conhecidos
+- Testar outros parâmetros identificados na Etapa 11
+- Verificar rate limiting no wp-json
+- Testar _wpnonce para CSRF
+- Testar _method para method override attacks

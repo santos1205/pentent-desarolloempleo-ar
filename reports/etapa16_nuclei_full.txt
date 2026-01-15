@@ -1,0 +1,44 @@
+[dns-saas-service-detection:amazon-cloudfront] [dns] [info] desarrolloyempleo.cba.gov.ar [dwt8sjddftdpv.cloudfront.net]
+[caa-fingerprint] [dns] [info] desarrolloyempleo.cba.gov.ar
+[nameserver-fingerprint] [dns] [info] desarrolloyempleo.cba.gov.ar [ns-1934.awsdns-49.co.uk.,ns-456.awsdns-57.com.,ns-885.awsdns-46.net.,ns-1146.awsdns-15.org.]
+[addeventlistener-detect] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[aws-cloudfront-service] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[credentials-disclosure] [http] [unknown] https://desarrolloyempleo.cba.gov.ar ["authToken":"ac5b3c78ed4e6bebb01b2e4139df7377e3111256"]
+[missing-cookie-samesite-strict] [http] [info] https://desarrolloyempleo.cba.gov.ar [AWSALB=/l+/t2QSsWsC8M9YFv/vVxaRx9iDj1nZsQm/ItWbZp1/HK/6P0HXQVasKViQVv9rXjxkYHYxBohLq7WvQuq+dT1JnUh/4nWIB/RArdFhNovfKi6fTrQkBsjFYN+9; Expires=Wed, 21 Jan 2026 21:38:31 GMT; Path=/ AWSALBCORS=/l+/t2QSsWsC8M9YFv/vVxaRx9iDj1nZsQm/ItWbZp1/HK/6P0HXQVasKViQVv9rXjxkYHYxBohLq7WvQuq+dT1JnUh/4nWIB/RArdFhNovfKi6fTrQkBsjFYN+9; Expires=Wed, 21 Jan 2026 21:38:31 GMT; Path=/; SameSite=None; Secure]
+[metatag-cms] [http] [info] https://desarrolloyempleo.cba.gov.ar [WordPress 6.8.3,Site Kit by Google 1.170.0,Elementor 3.30.4; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto]
+[tech-detect:elementor] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[tech-detect:font-awesome] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[tech-detect:animate.css] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[tech-detect:google-font-api] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[wordpress-plugin-detect:elementor] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[wordpress-plugin-detect:add-search-to-menu] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[wordpress-plugin-detect:spotlight-social-photo-feeds] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[wordpress-plugin-detect:addons-for-elementor] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[wordpress-plugin-detect:3r-elementor-timeline-widget] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[wordpress-plugin-detect:simple-sticky-header-on-scroll] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[wordpress-theme-detect:astra] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:x-frame-options] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:referrer-policy] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:strict-transport-security] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:content-security-policy] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:permissions-policy] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:x-content-type-options] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:clear-site-data] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[aws-detect:aws-alb] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[aws-detect:aws-cloudfront] [http] [info] https://desarrolloyempleo.cba.gov.ar
+[wordpress-elementor:detected_version] [http] [info] https://desarrolloyempleo.cba.gov.ar/wp-content/plugins/elementor/readme.txt [3.30.4]
+[waf-detect:cloudfront] [http] [info] https://desarrolloyempleo.cba.gov.ar/
+[ssl-issuer] [ssl] [info] desarrolloyempleo.cba.gov.ar:443 [Amazon]
+[ssl-dns-names] [ssl] [info] desarrolloyempleo.cba.gov.ar:443 [desarrolloyempleo.cba.gov.ar]
+[deprecated-tls:tls_1.1] [ssl] [info] desarrolloyempleo.cba.gov.ar:443 [tls11]
+[deprecated-tls:tls_1.0] [ssl] [info] desarrolloyempleo.cba.gov.ar:443 [tls10]
+[tls-version] [ssl] [info] desarrolloyempleo.cba.gov.ar:443 [tls10]
+[tls-version] [ssl] [info] desarrolloyempleo.cba.gov.ar:443 [tls11]
+[tls-version] [ssl] [info] desarrolloyempleo.cba.gov.ar:443 [tls12]
+[weak-cipher-suites:tls-1.0] [ssl] [low] desarrolloyempleo.cba.gov.ar:443 [[tls10 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA]]
+[tls-version] [ssl] [info] desarrolloyempleo.cba.gov.ar:443 [tls13]
+[weak-cipher-suites:tls-1.1] [ssl] [low] desarrolloyempleo.cba.gov.ar:443 [[tls11 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA]]
