@@ -1,0 +1,46 @@
+=== VALIDAÇÃO DE-010: CREDENTIALS DISCLOSURE - RESULTADOS ===
+
+Token Identificado: ac5b3c78ed4e6bebb01b2e4139df7377e3111256
+Endpoint Base: /wp-json/sl-insta
+Plugin: Spotlight Social Photo Feeds
+
+RESULTADOS DOS TESTES:
+
+1. Endpoint Base (/wp-json/sl-insta):
+   - Sem token: ✅ 200 OK (Acessível - retorna rotas disponíveis)
+   - Com token (Bearer): ✅ 200 OK (Acessível)
+   - Com token (X-Auth-Token): ✅ 200 OK (Acessível)
+   - CONCLUSÃO: Endpoint base não requer autenticação
+
+2. Endpoint /accounts:
+   - Sem token: ❌ 401 Unauthorized ("Invalid auth token. Please refresh the page.")
+   - Com token (X-Auth-Token): ❌ 401 Unauthorized ("Invalid auth token. Please refresh the page.")
+   - CONCLUSÃO: Endpoint requer autenticação, mas token exposto não funciona isoladamente
+
+3. Endpoint /settings:
+   - Sem token: ❌ 401 Unauthorized ("You must be logged in")
+   - Com token (X-Auth-Token): ❌ 401 Unauthorized ("You must be logged in")
+   - CONCLUSÃO: Endpoint requer autenticação WordPress completa
+
+4. Endpoint /media:
+   - Testando...
+
+5. Endpoint /feeds:
+   - Testando...
+
+ANÁLISE:
+- O token exposto parece ser um nonce WordPress (X-WP-Nonce)
+- Endpoints sensíveis requerem autenticação WordPress completa (cookies de sessão)
+- O token isolado não permite acesso não autorizado
+- MAS: Token exposto ainda é information disclosure (pode ser usado em ataques CSRF ou outros)
+
+SEVERIDADE REVISADA:
+- Original: 🟡 Média (CVSS 5.3)
+- Após Validação: 🟡 Média (CVSS 5.3) - Information Disclosure confirmado
+- Impacto Real: Baixo-Médio (token não permite acesso direto, mas expõe informação sensível)
+
+RECOMENDAÇÕES:
+1. Token ainda deve ser removido do código client-side
+2. Implementar tokens únicos por sessão
+3. Validar se token pode ser usado em ataques CSRF
+

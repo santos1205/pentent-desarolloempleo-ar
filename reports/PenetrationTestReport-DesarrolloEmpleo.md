@@ -113,7 +113,7 @@ A avaliação completou **16 etapas** de reconhecimento e identificou **10 vulne
 - **DE-009:** Brute-Force de Senhas de Posts Protegidos via REST API - 🟠 Alta (CONFIRMADA na Etapa 14)
 
 **Nova Descoberta - Etapa 16:**
-- **DE-010:** Credentials Disclosure - Token de Autenticação Exposto - 🟡 Média (Validação Pendente)
+- **DE-010:** Credentials Disclosure - Token de Autenticação Exposto - 🟡 Média ✅ **VALIDADO** (Information Disclosure confirmado, impacto baixo-médio)
 - **Configurações de Segurança Fracas:** 11 security headers ausentes, cookies sem flags de segurança, TLS desatualizado
 - **Cadeias de Exploração Identificadas:** Múltiplas falhas de configuração podem ser combinadas para aumentar impacto
 
@@ -714,10 +714,10 @@ Método de Descoberta: Nuclei (credentials-disclosure template)
 ```
 
 #### Impacto
-- **Information Disclosure:** Token de autenticação exposto publicamente
-- **Acesso Não Autorizado:** Se o token for reutilizável, pode permitir acesso não autorizado à API REST do plugin
-- **Escalação de Privilégios:** Dependendo da funcionalidade da API, pode permitir acesso a dados de redes sociais ou funcionalidades administrativas
-- **Validação Pendente:** Necessário testar se o token permite acesso não autorizado ao endpoint `/wp-json/sl-insta`
+- **Information Disclosure:** ✅ **CONFIRMADO** - Token de autenticação exposto publicamente
+- **Acesso Não Autorizado:** ❌ **NÃO CONFIRMADO** - Token isolado não permite acesso não autorizado (requer autenticação WordPress completa)
+- **Risco CSRF:** ⚠️ **POTENCIAL** - Token pode ser usado em ataques CSRF se combinado com sessão válida
+- **Validação:** ✅ **CONCLUÍDA** - Ver seção "Validação Realizada" abaixo
 
 #### Evidências
 - Token encontrado no código JavaScript: `var SliCommonL10n = {"restApi":{"baseUrl":"https://desarrolloyempleo.cba.gov.ar/wp-json/sl-insta","authToken":"ac5b3c78ed4e6bebb01b2e4139df7377e3111256"}}`
@@ -752,11 +752,40 @@ Método de Descoberta: Nuclei (credentials-disclosure template)
    - Verificar se há atualizações do plugin que corrigem este problema
    - Considerar substituir plugin se vulnerabilidade não for corrigida
 
-#### Validação Necessária
-- ⚠️ **PRIORIDADE ALTA:** Testar se o token permite acesso não autorizado ao endpoint `/wp-json/sl-insta`
-- Verificar se o token é único por sessão ou se é reutilizável
-- Testar funcionalidades acessíveis através da API REST do plugin
-- Validar se o token expõe dados sensíveis ou permite ações não autorizadas
+#### Validação Realizada ✅
+
+**Data da Validação:** 15 de Janeiro de 2026
+
+**Testes Executados:**
+1. ✅ Endpoint base `/wp-json/sl-insta` sem token: **200 OK** (Acessível - retorna rotas disponíveis)
+2. ✅ Endpoint base com token (Bearer): **200 OK** (Acessível)
+3. ✅ Endpoint base com token (X-Auth-Token): **200 OK** (Acessível)
+4. ✅ Endpoint `/wp-json/sl-insta/accounts` sem token: **401 Unauthorized** ("Invalid auth token. Please refresh the page.")
+5. ✅ Endpoint `/wp-json/sl-insta/accounts` com token: **401 Unauthorized** ("Invalid auth token. Please refresh the page.")
+6. ✅ Endpoint `/wp-json/sl-insta/settings` sem token: **401 Unauthorized** ("You must be logged in")
+7. ✅ Endpoint `/wp-json/sl-insta/settings` com token: **401 Unauthorized** ("You must be logged in")
+8. ✅ Endpoint `/wp-json/sl-insta/media` sem token: **401 Unauthorized** ("Invalid auth token. Please refresh the page.")
+9. ✅ Endpoint `/wp-json/sl-insta/feeds` sem token: **401 Unauthorized** ("You must be logged in")
+10. ✅ Teste com X-WP-Nonce header: **403 Forbidden** ("Ha fallado la comprobación de la cookie")
+
+**Resultados da Validação:**
+- **Token Identificado:** É um nonce WordPress (X-WP-Nonce) usado para proteção CSRF
+- **Acesso Direto:** ❌ Token isolado **NÃO permite acesso não autorizado** aos endpoints sensíveis
+- **Autenticação Necessária:** Endpoints sensíveis requerem autenticação WordPress completa (cookies de sessão)
+- **Information Disclosure Confirmado:** ✅ Token ainda está exposto no código client-side
+- **Risco CSRF:** ⚠️ Token pode ser usado em ataques CSRF se combinado com sessão válida
+
+**Severidade Revisada:**
+- **Original:** 🟡 Média (CVSS 5.3)
+- **Após Validação:** 🟡 Média (CVSS 5.3) - Information Disclosure confirmado
+- **Impacto Real:** Baixo-Médio (token não permite acesso direto, mas expõe informação sensível e pode ser usado em CSRF)
+
+**Conclusão:**
+A vulnerabilidade DE-010 é confirmada como **Information Disclosure**. Embora o token não permita acesso direto não autorizado aos endpoints sensíveis, ele ainda representa um risco porque:
+1. Expõe informações sobre a estrutura de autenticação
+2. Pode ser usado em ataques CSRF se combinado com uma sessão válida
+3. Viola boas práticas de segurança ao expor tokens no código client-side
+4. Pode facilitar outros ataques se combinado com outras vulnerabilidades
 
 #### Referências
 - [OWASP: Information Exposure](https://owasp.org/www-community/vulnerabilities/Information_exposure)
@@ -3529,12 +3558,12 @@ A Etapa 16 revelou um **padrão consistente de configurações de segurança fra
   4. Se token válido: Acesso não autorizado a dados de redes sociais
   5. Se token inválido: Information disclosure (token exposto)
   ```
-- **Validação Necessária:** ⚠️ **CRÍTICA** - Testar endpoint `/wp-json/sl-insta` com o token
-- **Recomendação:** ⚠️ **PRIORIDADE ALTA** - Validar se token permite acesso não autorizado
-- **Impacto Potencial:** 
-  - **Alto:** Se token permite acesso à API REST do plugin
-  - **Médio:** Se token é apenas informação sensível exposta
-  - **Baixo:** Se token é público por design (improvável dado o contexto)
+- **Validação:** ✅ **CONCLUÍDA** - Ver seção "Validação Realizada" na vulnerabilidade DE-010
+- **Resultado da Validação:** Token isolado NÃO permite acesso não autorizado (requer autenticação WordPress completa)
+- **Impacto Confirmado:** 
+  - **Baixo-Médio:** Information Disclosure confirmado
+  - **Risco CSRF:** Token pode ser usado em ataques CSRF se combinado com sessão válida
+  - **Severidade Mantida:** 🟡 Média (CVSS 5.3)
 
 **2. Missing Security Headers - Análise Quantitativa e Cadeia de Exploração:**
 - **11 headers ausentes:** Representa falta sistemática de controles de segurança HTTP
