@@ -1,8 +1,0 @@
-https://webchat.cba.gov.ar/WebChatClient/js/iframeMain.js
-https://hacemosescuela.cba.gov.ar/wp-content/themes/hacemosescuela_3-15/assets/owlcarousel/owl.carousel.js
-https://hacemosescuela.cba.gov.ar/wp-content/themes/hacemosescuela_3-15/assets/vendors/jquery.min.js
-https://compraspublicas.cba.gov.ar/wp-content/themes/webcompraspublicas/plugins/jquery-steps/jquery.steps.min.js
-https://compraspublicas.cba.gov.ar/wp-content/themes/webcompraspublicas/plugins/validate/validate.min.js
-https://compraspublicas.cba.gov.ar/wp-content/themes/webcompraspublicas/js/functions.js
-https://compraspublicas.cba.gov.ar/wp-content/themes/webcompraspublicas/js/plugins.js
-https://gestionabierta.cba.gov.ar/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-contact-form-7-21cf1c445673c649970d.js

@@ -1,3 +1,0 @@
-# Nenhum redirect encontrado nos hosts ativos (HTTP redireciona para HTTPS automaticamente)
-
-

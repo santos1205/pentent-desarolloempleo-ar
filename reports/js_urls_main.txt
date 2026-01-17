@@ -1,5 +1,0 @@
-https://desarrolloyempleo.cba.gov.ar/wp-content/themes/astra/assets/js/minified/flexibility.min.js?ver=4.11.7
-https://desarrolloyempleo.cba.gov.ar/wp-includes/js/jquery/jquery.min.js?ver=3.7.1
-https://desarrolloyempleo.cba.gov.ar/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1
-https://desarrolloyempleo.cba.gov.ar/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.30.4
-https://desarrolloyempleo.cba.gov.ar/wp-content/themes/astra/assets/js/minified/frontend.min.js?ver=4.11.7
