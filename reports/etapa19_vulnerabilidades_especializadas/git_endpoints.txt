@@ -1,0 +1,6 @@
+https://desarrolloyempleo.cba.gov.ar/.git/
+https://desarrolloyempleo.cba.gov.ar/.git/HEAD
+https://desarrolloyempleo.cba.gov.ar/.git/config
+https://desarrolloyempleo.cba.gov.ar/wp-content/.git/
+https://desarrolloyempleo.cba.gov.ar/wp-content/themes/.git/
+https://desarrolloyempleo.cba.gov.ar/wp-content/plugins/.git/

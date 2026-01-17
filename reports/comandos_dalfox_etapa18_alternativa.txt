@@ -1,0 +1,68 @@
+# ============================================
+# ETAPA 18: CROSS-SITE SCRIPTING (XSS) TESTING
+# Comandos Dalfox (ALTERNATIVA - se baixar/instalar)
+# ============================================
+# Ferramenta: Dalfox (Go-based XSS scanner)
+# Status: Arquivo atual corrompido, precisa baixar versão funcional
+# Alvo: https://desarrolloyempleo.cba.gov.ar
+
+# ============================================
+# OPÇÃO 1: BAIXAR BINÁRIO WINDOWS
+# ============================================
+# 1. Acessar: https://github.com/hahwul/dalfox/releases/latest
+# 2. Baixar: dalfox_*_windows_amd64.exe (ou .zip)
+# 3. Mover para: /c/Sec/Tools/dalfox.exe
+# 4. Dar permissão: chmod +x /c/Sec/Tools/dalfox.exe
+
+# ============================================
+# OPÇÃO 2: VIA DOCKER (RECOMENDADO)
+# ============================================
+# Comando 1: Testar URL específica
+docker run --rm -v "$(pwd):/data" hahwul/dalfox url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test"
+
+# Comando 2: Testar com pipe (usar arquivo de URLs)
+cat paramspider_urls_with_params.txt | docker run --rm -i hahwul/dalfox pipe
+
+# Comando 3: Testar com arquivo de URLs
+docker run --rm -v "$(pwd):/data" hahwul/dalfox file /data/paramspider_urls_with_params.txt
+
+# Comando 4: Testar com output em arquivo
+docker run --rm -v "$(pwd):/data" hahwul/dalfox url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?context=view" > etapa18_dalfox_context.txt 2>&1
+
+# ============================================
+# OPÇÃO 3: VIA GO (se Go estiver instalado)
+# ============================================
+# go install github.com/hahwul/dalfox/v2@latest
+# Depois usar: dalfox url "https://..."
+
+# ============================================
+# COMANDOS DALFOX (APÓS INSTALAÇÃO)
+# ============================================
+
+# Comando 1: Testar URL específica
+dalfox url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test"
+
+# Comando 2: Testar com pipe (usar arquivo)
+cat paramspider_urls_with_params.txt | dalfox pipe
+
+# Comando 3: Testar com arquivo
+dalfox file paramspider_urls_with_params.txt
+
+# Comando 4: Testar com output em arquivo
+dalfox url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?context=view" > etapa18_dalfox_context.txt 2>&1
+
+# Comando 5: Testar com múltiplas threads
+dalfox url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" --worker 20
+
+# Comando 6: Testar com output formatado (JSON)
+dalfox url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" --format json
+
+# ============================================
+# NOTAS:
+# ============================================
+# - Dalfox é mais rápido que XSStrike
+# - Dalfox tem melhor suporte para pipe/arquivos
+# - Dalfox é escrito em Go (mais performático)
+# - XSStrike já está funcionando e pode ser usado
+# - Recomendação: Usar XSStrike primeiro, depois Dalfox se necessário
+# ============================================

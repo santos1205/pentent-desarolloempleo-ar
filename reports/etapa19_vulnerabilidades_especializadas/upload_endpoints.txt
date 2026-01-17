@@ -1,0 +1,6 @@
+https://desarrolloyempleo.cba.gov.ar/wp-admin/admin-ajax.php
+https://desarrolloyempleo.cba.gov.ar/wp-admin/async-upload.php
+https://desarrolloyempleo.cba.gov.ar/wp-admin/media-upload.php
+https://desarrolloyempleo.cba.gov.ar/wp-content/uploads/
+https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/media
+https://desarrolloyempleo.cba.gov.ar/wp-admin/upload.php

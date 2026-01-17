@@ -1,0 +1,13 @@
+
+           
+                                      _    __       
+   ___  ___ ________ ___ _  ___ ___  (_)__/ /__ ____
+  / _ \/ _ `/ __/ _ `/  ' \(_-</ _ \/ / _  / -_) __/
+ / .__/\_,_/_/  \_,_/_/_/_/___/ .__/_/\_,_/\__/_/   
+/_/                          /_/                    
+
+                              with <3 by @0xasm0d3us           
+    
+usage: main.py [-h] [-d DOMAIN] [-l LIST] [-s] [--proxy PROXY]
+               [-p PLACEHOLDER]
+main.py: error: unrecognized arguments: -o C:/Sec/Pentests/DesarrolloEmpleo-ar/reports/etapa18_xss/paramspider_xss_urls.txt

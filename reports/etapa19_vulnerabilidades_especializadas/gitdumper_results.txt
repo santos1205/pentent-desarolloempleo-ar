@@ -1,0 +1,170 @@
+###########
+# GitDumper is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances. 
+# Only for educational purposes!
+###########
+
+
+[33m[*] Destination folder does not exist[0m
+[32m[+] Creating gitdumper_results/desarrolloyempleo.cba.gov.ar/.git/[0m
+[31m[-] Downloaded: HEAD[0m
+[31m[-] Downloaded: objects/info/packs[0m
+[31m[-] Downloaded: description[0m
+[31m[-] Downloaded: config[0m
+[31m[-] Downloaded: COMMIT_EDITMSG[0m
+[31m[-] Downloaded: index[0m
+[31m[-] Downloaded: packed-refs[0m
+[31m[-] Downloaded: refs/heads/master[0m
+[31m[-] Downloaded: refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: refs/stash[0m
+[31m[-] Downloaded: logs/HEAD[0m
+[31m[-] Downloaded: logs/refs/heads/master[0m
+[31m[-] Downloaded: logs/refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: info/refs[0m
+[31m[-] Downloaded: info/exclude[0m
+[31m[-] Downloaded: /refs/wip/index/refs/heads/master[0m
+[31m[-] Downloaded: /refs/wip/wtree/refs/heads/master[0m
+###########
+# GitDumper is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances. 
+# Only for educational purposes!
+###########
+
+
+[31m[-] Downloaded: HEAD[0m
+[31m[-] Downloaded: objects/info/packs[0m
+[31m[-] Downloaded: description[0m
+[31m[-] Downloaded: config[0m
+[31m[-] Downloaded: COMMIT_EDITMSG[0m
+[31m[-] Downloaded: index[0m
+[31m[-] Downloaded: packed-refs[0m
+[31m[-] Downloaded: refs/heads/master[0m
+[31m[-] Downloaded: refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: refs/stash[0m
+[31m[-] Downloaded: logs/HEAD[0m
+[31m[-] Downloaded: logs/refs/heads/master[0m
+[31m[-] Downloaded: logs/refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: info/refs[0m
+[31m[-] Downloaded: info/exclude[0m
+[31m[-] Downloaded: /refs/wip/index/refs/heads/master[0m
+[31m[-] Downloaded: /refs/wip/wtree/refs/heads/master[0m
+###########
+# GitDumper is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances. 
+# Only for educational purposes!
+###########
+
+
+[31m[-] Downloaded: HEAD[0m
+[31m[-] Downloaded: objects/info/packs[0m
+[31m[-] Downloaded: description[0m
+[31m[-] Downloaded: config[0m
+[31m[-] Downloaded: COMMIT_EDITMSG[0m
+[31m[-] Downloaded: index[0m
+[31m[-] Downloaded: packed-refs[0m
+[31m[-] Downloaded: refs/heads/master[0m
+[31m[-] Downloaded: refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: refs/stash[0m
+[31m[-] Downloaded: logs/HEAD[0m
+[31m[-] Downloaded: logs/refs/heads/master[0m
+[31m[-] Downloaded: logs/refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: info/refs[0m
+[31m[-] Downloaded: info/exclude[0m
+[31m[-] Downloaded: /refs/wip/index/refs/heads/master[0m
+[31m[-] Downloaded: /refs/wip/wtree/refs/heads/master[0m
+###########
+# GitDumper is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances. 
+# Only for educational purposes!
+###########
+
+
+[33m[*] Destination folder does not exist[0m
+[32m[+] Creating gitdumper_results/desarrolloyempleo.cba.gov.ar_wp-content/.git/[0m
+[31m[-] Downloaded: HEAD[0m
+[31m[-] Downloaded: objects/info/packs[0m
+[31m[-] Downloaded: description[0m
+[31m[-] Downloaded: config[0m
+[31m[-] Downloaded: COMMIT_EDITMSG[0m
+[31m[-] Downloaded: index[0m
+[31m[-] Downloaded: packed-refs[0m
+[31m[-] Downloaded: refs/heads/master[0m
+[31m[-] Downloaded: refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: refs/stash[0m
+[31m[-] Downloaded: logs/HEAD[0m
+[31m[-] Downloaded: logs/refs/heads/master[0m
+[31m[-] Downloaded: logs/refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: info/refs[0m
+[31m[-] Downloaded: info/exclude[0m
+[31m[-] Downloaded: /refs/wip/index/refs/heads/master[0m
+[31m[-] Downloaded: /refs/wip/wtree/refs/heads/master[0m
+###########
+# GitDumper is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances. 
+# Only for educational purposes!
+###########
+
+
+[33m[*] Destination folder does not exist[0m
+[32m[+] Creating gitdumper_results/desarrolloyempleo.cba.gov.ar_wp-content_themes/.git/[0m
+[31m[-] Downloaded: HEAD[0m
+[31m[-] Downloaded: objects/info/packs[0m
+[31m[-] Downloaded: description[0m
+[31m[-] Downloaded: config[0m
+[31m[-] Downloaded: COMMIT_EDITMSG[0m
+[31m[-] Downloaded: index[0m
+[31m[-] Downloaded: packed-refs[0m
+[31m[-] Downloaded: refs/heads/master[0m
+[31m[-] Downloaded: refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: refs/stash[0m
+[31m[-] Downloaded: logs/HEAD[0m
+[31m[-] Downloaded: logs/refs/heads/master[0m
+[31m[-] Downloaded: logs/refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: info/refs[0m
+[31m[-] Downloaded: info/exclude[0m
+[31m[-] Downloaded: /refs/wip/index/refs/heads/master[0m
+[31m[-] Downloaded: /refs/wip/wtree/refs/heads/master[0m
+###########
+# GitDumper is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances. 
+# Only for educational purposes!
+###########
+
+
+[33m[*] Destination folder does not exist[0m
+[32m[+] Creating gitdumper_results/desarrolloyempleo.cba.gov.ar_wp-content_plugins/.git/[0m
+[31m[-] Downloaded: HEAD[0m
+[31m[-] Downloaded: objects/info/packs[0m
+[31m[-] Downloaded: description[0m
+[31m[-] Downloaded: config[0m
+[31m[-] Downloaded: COMMIT_EDITMSG[0m
+[31m[-] Downloaded: index[0m
+[31m[-] Downloaded: packed-refs[0m
+[31m[-] Downloaded: refs/heads/master[0m
+[31m[-] Downloaded: refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: refs/stash[0m
+[31m[-] Downloaded: logs/HEAD[0m
+[31m[-] Downloaded: logs/refs/heads/master[0m
+[31m[-] Downloaded: logs/refs/remotes/origin/HEAD[0m
+[31m[-] Downloaded: info/refs[0m
+[31m[-] Downloaded: info/exclude[0m
+[31m[-] Downloaded: /refs/wip/index/refs/heads/master[0m
+[31m[-] Downloaded: /refs/wip/wtree/refs/heads/master[0m
